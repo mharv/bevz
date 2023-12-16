@@ -28,15 +28,14 @@ fn add_people(mut commands: Commands) {
 }
 
 fn greet_people(time: Res<Time>, mut timer: ResMut<GreetTimer>, query: Query<&Name, With<Person>>) {
-    info!("{}", timer.1);
-    info!("{:?}", timer.0);
-
     if timer.0.tick(time.delta()).just_finished() {
         for name in &query {
             println!("ola {}!", name.0);
             info!("trace");
         }
     }
+    println!("{}", timer.0.times_finished_this_tick());
+    println!("{}", timer.0.remaining_secs());
 }
 
 pub struct HelloPlugin;

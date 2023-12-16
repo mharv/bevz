@@ -6,7 +6,12 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy = { version = "0.12.1", features = ["dynamic_linking"] } # remove this before release build
+bevy = { version = "0.12.1", features = [
+    "dynamic_linking",
+] } # remove this before release build
+
+[dev-dependencies]
+clippy = { version = "*" }
 
 
 # Enable a small amount of optimization in debug mode
